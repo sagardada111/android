@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security In Computing Practicals</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    /* Add this to your existing styles.css */
+
+/* Download Button */
+.download-btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: #e74c3c; /* Red color to distinguish from Read More */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin: 1rem 0; /* Spacing from header content */
+}
+
+.download-btn1 {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: #09a8eb; /* Red color to distinguish from Read More */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin: 1rem 0; /* Spacing from header content */
+}
+
+.download-btn:hover {
+    background-color: #c0392b; /* Darker red on hover */
+    transform: scale(1.05);
+}
+
+.download-btn:active {
+    transform: scale(0.95);
+}
+
+/* Ensure the anchor tag doesn’t interfere with button styling */
+a {
+    text-decoration: none;
+}
+</style>
+<body>
+    <script>
+        var correctPassword = "12345"; // Change this to your desired password
+        var userInput = prompt("Enter the password to access this page:");
+        if (userInput !== correctPassword) {
+            alert("Incorrect password!");
+            window.location.href = "about:blank"; // Redirect to blank page on wrong password
+        }
+    </script>
+    <header>
+        <h1>Security In Computing Practicals</h1>
+        <!-- Download Button -->
+        <a href="Android Practicals.pdf" download="Android Practicals.pdf">
+            <button class="download-btn">Download PDF</button>
+        </a>
+        <h1>lelo pdf</h1>
+        <a href="TYIT AMP Practical.pdf" download="TYIT AMP Practical.pdf">
+            <button class="download-btn1">Download PDF</button>
+        </a>
+    </header>
+   
+
+    <!-- Updated JavaScript for Read More and Download -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Read More functionality
+            const readMoreButtons = document.querySelectorAll('.read-more');
+            
+            readMoreButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const card = button.closest('.card');
+                    const fullContent = card.querySelector('.full-content');
+
+                    if (!fullContent) {
+                        console.error('Full content not found for this card');
+                        return;
+                    }
+
+                    if (fullContent.style.display === 'block') {
+                        fullContent.style.display = 'none';
+                        button.textContent = 'Read More';
+                        button.setAttribute('aria-expanded', 'false');
+                    } else {
+                        fullContent.style.display = 'block';
+                        button.textContent = 'Read Less';
+                        button.setAttribute('aria-expanded', 'true');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
